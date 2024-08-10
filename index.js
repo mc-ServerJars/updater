@@ -2,7 +2,6 @@ const axios = require('axios');
 const mysql = require('mysql2/promise');
 
 // Database connection configuration
-// TODO: Make this dotenv
 const dbConfig = {
     host: '...',
     user: '...',
@@ -145,7 +144,12 @@ async function processVersions(fork, versions, endpointBase) {
                 for (const build of buildsData) {
                     const buildNumber = build.buildNumber || '0';
                     const name = build.name || null;
-                    const downloadLink = build.jarUrl || '';
+                    let downloadLink = '';
+                    if (build.jarUrl) {
+                        downloadLink = build.jarUrl || '';
+                    } else {
+                        downloadLink = build.zipUrl || '';
+                    }
 
                     if (name) {
                         const [rows] = await connection.execute(
