@@ -8,10 +8,10 @@ const headers = {
 
 // Database connection configuration
 const dbConfig = {
-    host: '...',
-    user: '...',
-    password: '...',
-    database: '...'
+    host: "...";,
+    user: "...";,
+    password: "...";,
+    database: "...";
 };
 
 const webhookUrl = "...";
@@ -143,7 +143,7 @@ async function processVersions(fork, versions, endpointBase) {
             console.log(`[${fork}] Processing version: ${versionName}`);
 
             try {
-                const response = await axios.get(endpoint, headers);
+                const response = await axios.get(endpoint, { headers });
                 const buildsData = response.data.builds || [];
 
                 for (const build of buildsData) {
