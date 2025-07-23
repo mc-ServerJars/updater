@@ -175,3 +175,4 @@ journalctl -u minecraft-indexer -f
 ## License
 
 Apache 2.0 License - See [LICENSE](LICENSE) for details.
+If you do not understand this license, please view [Choose A License's page on it](https://choosealicense.com/licenses/apache-2.0/).
