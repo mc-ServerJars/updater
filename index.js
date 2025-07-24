@@ -108,7 +108,7 @@ async function processBuild(connection, fork, version, build) {
 
 async function processVersion(connection, fork, version, endpointBase) {
     try {
-        const response = await axios.get(`${endpointBase}${version}`, { headers: CONFIG.headers });
+        const response = await axios.get(`${endpointBase}${version}?tracking=none`, { headers: CONFIG.headers });
         const builds = response.data.builds || [];
         
         if (builds.length === 0) {
